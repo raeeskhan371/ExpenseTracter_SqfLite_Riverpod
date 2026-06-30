@@ -1,3 +1,4 @@
+import 'package:expense_tracker_sqflite/database/local_databas/testing.dart';
 import 'package:expense_tracker_sqflite/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: HomeScreen(),
+      home: SetBalanceScreen(),
     );
   }
 }

@@ -1,12 +1,12 @@
 class BudgetModel {
   int? id;
   double amount;
-  String createdAt;
-  String updatedAt;
+  DateTime? createdAt;
+  DateTime updatedAt;
 
   BudgetModel({
     required this.amount,
-    required this.createdAt,
+    this.createdAt,
     required this.updatedAt,
     this.id,
   });
@@ -15,16 +15,16 @@ class BudgetModel {
     return {
       "id": id,
       "amount": amount,
-      "createdAt": createdAt,
-      "updatedAt": updatedAt,
+      "createdAt": createdAt?.toIso8601String(),
+      "updatedAt": updatedAt.toIso8601String(),
     };
   }
 
   factory BudgetModel.fromMap(Map<String, dynamic> map) {
     return BudgetModel(
       amount: (map["amount"] as num).toDouble(),
-      createdAt: map["createdAt"],
-      updatedAt: map["updatedAt"],
+      createdAt: DateTime.parse(map["createdAt"]),
+      updatedAt: DateTime.parse(map["updatedAt"]),
       id: map["id"],
     );
   }
